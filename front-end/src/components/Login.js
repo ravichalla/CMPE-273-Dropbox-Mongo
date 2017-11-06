@@ -14,7 +14,7 @@ class Login extends Component {
         password: ''
     };
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
             isLoggedIn: false,
             message: '',
@@ -26,21 +26,27 @@ class Login extends Component {
     handleSubmit = (userdata) => {
         API.doLogin(userdata)
             .then((res) => {
-                if (res.status === 201) {
-                    this.setState({
-                        isLoggedIn: true,
-                        message: "Login.js - handleSubmit - Successfully Logged In !!",
-                        username: userdata.username
-                    });
-                    console.log("Login.js - handleSubmit - Successful login");
-                    console.log("Login.js - handleSubmit - Username: " + this.state.username);
-                    this.props.history.push("/welcome");
-                } else if (res.status === 401) {
-                    this.setState({
-                        isLoggedIn: false,
-                        message: "Wrong username or password. Try again..!!"
-                    });
-                }
+                res.json().then((data) => {
+                    console.log(data);
+                    if (data.status === 201) {
+                        this.setState({
+                            isLoggedIn: true,
+                            message: "Login.js - handleSubmit - Successfully Logged In !!",
+                            username: data.username,
+                            firstname: data.firstname,
+                            lastname: data.lastname
+                        });
+                        console.log("Login.js - handleSubmit - Successful login");
+                        console.log("Login.js - handleSubmit - Username: " + this.state.username);
+                        this.props.history.push("/welcome");
+                    }
+                    else if (data.status === 401) {
+                        this.setState({
+                            isLoggedIn: false,
+                            message: "Wrong username or password. Try again..!!"
+                        });
+                    }
+                });
             });
     };
 
@@ -105,7 +111,7 @@ class Login extends Component {
                     )}/>
 
                     <Route exact path="/welcome" render={() => (
-                        <Welcome username={this.state.username}/>
+                        <Welcome username={this.state.username} firstname={this.state.firstname} lastname={this.state.lastname}/>
                     )}/>
 
                     <Route path="/about" render={() => (

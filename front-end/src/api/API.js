@@ -72,6 +72,36 @@ export const getImages = (payload) =>
             return error;
         });
 
+export const deleteFile = (payload) =>
+    fetch(`${api}/deleteFile`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error.");
+            return error;
+        });
+
+export const uploadFile = (payload) =>
+    fetch(`${api}/uploadFile`, {
+        method: 'POST',
+        credentials: 'include',
+        body: payload
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error.");
+            return error;
+        });
+
 export const getDetails = (payload) =>
     fetch(`${api}/getDetails`, {
         method: 'POST',

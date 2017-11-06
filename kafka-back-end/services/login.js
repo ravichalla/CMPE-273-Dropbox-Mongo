@@ -13,10 +13,12 @@ function handle_login(msg, callback) {
         myCollection.findOne({username: msg.username, password: msg.password}, function (err, user) {
             if (user) {
                 console.log("1:" + user);
-                console.log("2:" + msg.username);
+                console.log("2:" + user.username);
                 console.log("3: " + user.password);
-                res.username = msg.username;
-                res.password = msg.password;
+                res.username = user.username;
+                res.password = user.password;
+                res.firstname = user.firstname;
+                res.lastname = user.lastname;
                 res.status = 201;
                 res.value = "Success Login";
 

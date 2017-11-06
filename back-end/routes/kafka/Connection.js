@@ -2,7 +2,9 @@ var kafka = require('kafka-node');
 var topics = [
     {topic: 'login_response', partition: 0},
     {topic: 'signup_response', partition: 0},
-    {topic: 'getfiles_response', partition: 0}
+    {topic: 'getfiles_response', partition: 0},
+    {topic: 'delete_response', partition: 0},
+    {topic: 'upload_response', partition: 0}
 ];
 
 function ConnectionProvider() {

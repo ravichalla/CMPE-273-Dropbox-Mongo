@@ -105,8 +105,38 @@ app.post('/signup', function (req, res) {
     });
 });
 
+app.post('/deleteFile', function(req, res) {
+
+   console.log("In app.js - deleteFille - id : " + req.body.id);
+
+   kafka.make_request('delete_request', 'delete_response', req.body.id, function(err, results) {
+       console.log("In app.js - deleteFile : Results - " + results);
+       if (err) {
+           res.status(401).send();
+       }
+       else {
+           res.status(201).send(results);
+       }
+   });
+});
+
+app.post('/uploadFile', function(req, res) {
+
+    console.log("In app.js - uploadFille - request contains : " + req);
+
+    kafka.make_request('upload_request', 'upload_response', req, function(err, results) {
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
+
+});
+
 app.get('/getImages', function (req, res) {
-    console.log("IN app.js - getImages - Username is " + req.session.username);
+    console.log("In app.js - getImages - Username is " + req.session.username);
     kafka.make_request('getfiles_request', 'getfiles_response', req.session.username, function(err, results) {
         console.log("In app.js - signup : Results - " + results);
         if (err) {

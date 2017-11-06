@@ -7,8 +7,8 @@ class Welcome extends Component {
 
     state = {
         username: this.props.username,
-        firstname: '',
-        lastname: '',
+        firstname: this.props.firstname,
+        lastname: this.props.lastname,
         statusMessage: '',
         result: []
     };
@@ -30,52 +30,55 @@ class Welcome extends Component {
     //         });
     // };
 
-    // handleFileUpload = (event) => {
-    //     console.log("1");
-    //     const payload = new FormData();
-    //     payload.append('mypic', event.target.files[0]);
-    //     console.log("2");
-    //
-    //     API.uploadFile(payload)
-    //         .then((status) => {
-    //             if (status === 201) {
-    //                 console.log("Post upload - before getImages");
-    //                 API.getImages()
-    //                     .then((res) => {
-    //                         res.json().then((data) => {
-    //                             console.log(data);
-    //                             this.setState({
-    //                                 result: data.result,
-    //                                 statusMessage: 'File successfully UPLOADED into the local file system'
-    //                             })
-    //                             }
-    //                         )
-    //                     });
-    //             }
-    //         });
-    // };
+    handleFileUpload = (event) => {
+        console.log("1");
+        const payload = new FormData();
+        payload.append('myfile', event.target.files[0]);
+        console.log("2");
 
-    // handleDeleteFile = (payload) => {
-    //     let payload1 = {id : payload};
-    //     console.log("In handleDeleteFile");
-    //     API.deleteFile(payload1)
-    //         .then((status) => {
-    //         if(status === 201) {
-    //             console.log("In handleDeleteFolder");
-    //             API.getImages()
-    //                 .then((res) => {
-    //                     res.json().then((data) => {
-    //                             console.log(data);
-    //                             this.setState({
-    //                                 result: data.result,
-    //                                 statusMessage: 'File successfully DELETED from the local file system'
-    //                             })
-    //                         }
-    //                     )
-    //                 });
-    //         }
-    //         });
-    // }
+        API.uploadFile(payload)
+            .then((status) => {
+                if (status === 201) {
+                    console.log("In Welcome.js - uploadFile completed");
+                    API.getImages()
+                        .then((res) => {
+                            res.json().then((data) => {
+                                    console.log(data);
+                                    this.setState({
+                                        result: data.result,
+                                        statusMessage: 'File successfully UPLOADED into the local file system'
+                                    })
+                                }
+                            )
+                        });
+                }
+            });
+    };
+
+    handleDeleteFile = (payload) => {
+        let payload1 = {id: payload};
+        console.log("In handleDeleteFile - payload1 : " + payload1);
+        console.log("In handleDeleteFile - payload1 : " + payload1.id);
+        API.deleteFile(payload1)
+            .then((status) => {
+            console.log("1:" + status);
+
+                if (status === 201) {
+                    console.log("In handleDeleteFolder");
+                    API.getImages()
+                        .then((res) => {
+                            res.json().then((data) => {
+                                console.log("In Welcome - data : " + data);
+                                console.log(data);
+                                this.setState({
+                                    result: data,
+                                    statusMessage: ''
+                                })
+                            })
+                        });
+                }
+            });
+    }
 
     componentWillMount() {
         console.log("Welcome.js - In componentWillMount");
@@ -140,12 +143,12 @@ class Welcome extends Component {
                     </div>
                 </div>
 
-                {/*<input*/}
-                {/*className={'fileupload'}*/}
-                {/*type="file"*/}
-                {/*name="mypic"*/}
-                {/*onChange={this.handleFileUpload}*/}
-                {/*/>*/}
+                <input
+                className={'fileupload'}
+                type="file"
+                name="myfile"
+                onChange={this.handleFileUpload}
+                />
 
                 <div>
                     {this.state.statusMessage}
@@ -158,13 +161,16 @@ class Welcome extends Component {
                                     <table className={'table table-striped'} key={fileObject.id}>
                                         <tbody>
                                         <tr>
-                                            <td>{fileObject.id}</td>
+                                            {/*<td>{fileObject._id}</td>*/}
                                             <td>{fileObject.username}</td>
                                             <td>{fileObject.documentName}</td>
                                             <td>{fileObject.documentType}</td>
                                             <td>{fileObject.path}</td>
                                             <td>{fileObject.star}</td>
-                                            {/*<td><button onClick={() => this.handleDeleteFile(fileObject.id)}>Delete</button></td>*/}
+                                            <td>
+                                                <button onClick={() => this.handleDeleteFile(fileObject._id)}>Delete
+                                                </button>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
