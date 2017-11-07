@@ -56,14 +56,16 @@ class Welcome extends Component {
     };
 
     handleDeleteFile = (payload) => {
+
         let payload1 = {id: payload};
         console.log("In handleDeleteFile - payload1 : " + payload1);
         console.log("In handleDeleteFile - payload1 : " + payload1.id);
-        API.deleteFile(payload1)
-            .then((status) => {
-            console.log("1:" + status);
 
-                if (status === 201) {
+        API.deleteFile(payload1)
+            .then((res) => {
+            console.log("1:" + res.status);
+
+                if (res.status === 201) {
                     console.log("In handleDeleteFolder");
                     API.getImages()
                         .then((res) => {

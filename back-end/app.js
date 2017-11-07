@@ -7,6 +7,10 @@ var passport = require('passport');
 var cors = require('cors');
 require('./routes/passport')(passport);
 
+var multer = require('multer');
+var glob = require('glob');
+var shelljs = require('shelljs');
+
 var kafka = require('./routes/kafka/client');
 
 var routes = require('./routes/index');
@@ -119,6 +123,19 @@ app.post('/deleteFile', function(req, res) {
        }
    });
 });
+//
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         console.log(req.session.email);
+//         cb(null, './public/uploads/' + req.session.email + '/')
+//     },
+//     filename: function (req, file, cb) {
+//         console.log(file);
+//         cb(null, file.originalname)
+//     }
+// });
+//
+// var upload = multer({storage:storage});
 
 app.post('/uploadFile', function(req, res) {
 

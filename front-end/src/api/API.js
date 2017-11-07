@@ -33,7 +33,7 @@ export const doSignup = (payload) =>
         body: JSON.stringify(payload)
     }).then(res => {
         console.log("API.js - doSignup - " + res);
-        return res.status;
+        return res;
     })
         .catch(error => {
             console.log("This is error");

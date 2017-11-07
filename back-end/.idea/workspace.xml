@@ -14,18 +14,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="126" column="16" lean-forward="false" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
+            <state relative-caret-position="238">
+              <caret line="137" column="42" lean-forward="true" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
               <folding>
-                <element signature="e#1773#1904#0" expanded="false" />
-                <element signature="e#1947#2461#0" expanded="false" />
-                <element signature="e#2505#3114#0" expanded="false" />
-                <element signature="e#3933#4334#0" expanded="false" />
-                <element signature="e#4382#4853#0" expanded="false" />
-                <element signature="e#4896#6122#0" expanded="false" />
+                <element signature="e#1868#1999#0" expanded="false" />
+                <element signature="e#2042#2556#0" expanded="false" />
+                <element signature="e#2600#3209#0" expanded="false" />
+                <element signature="e#3256#3626#0" expanded="false" />
+                <element signature="e#4411#4812#0" expanded="false" />
+                <element signature="e#4860#5331#0" expanded="false" />
+                <element signature="e#5374#6600#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -35,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/routes/passport.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -45,17 +46,17 @@
         <entry file="file://$PROJECT_DIR$/routes/kafka/client.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kafkarpc.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kafkarpc.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/kafka/kafkarpc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+            <state relative-caret-position="659">
+              <caret line="47" column="22" lean-forward="false" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -65,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/routes/kafka/Connection.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+              <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -85,9 +86,9 @@
         <option value="$PROJECT_DIR$/routes/passport.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/kafka/client.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/kafka/Connection.js" />
         <option value="$PROJECT_DIR$/routes/kafka/kafkarpc.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -144,8 +145,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -211,26 +212,28 @@
       <workItem from="1509482435484" duration="17000" />
       <workItem from="1509482463440" duration="12376000" />
       <workItem from="1509598723364" duration="22822000" />
+      <workItem from="1510088077093" duration="1402000" />
+      <workItem from="1510091305306" duration="2127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65762000" />
+    <option name="totallyTimeSpent" value="69291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26500732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27609682" sideWeight="0.49202734" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28346458" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27609682" sideWeight="0.50797266" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28267974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.374183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -255,15 +258,112 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="126" column="16" lean-forward="false" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
+          <folding>
+            <element signature="e#1868#1999#0" expanded="false" />
+            <element signature="e#2042#2556#0" expanded="false" />
+            <element signature="e#2600#3209#0" expanded="false" />
+            <element signature="e#3256#3626#0" expanded="false" />
+            <element signature="e#4411#4812#0" expanded="false" />
+            <element signature="e#4860#5331#0" expanded="false" />
+            <element signature="e#5374#6600#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kafka/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kafka/Connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kafka/kafkarpc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="22" lean-forward="false" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="126" column="16" lean-forward="false" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
+          <folding>
+            <element signature="e#1868#1999#0" expanded="false" />
+            <element signature="e#2042#2556#0" expanded="false" />
+            <element signature="e#2600#3209#0" expanded="false" />
+            <element signature="e#3256#3626#0" expanded="false" />
+            <element signature="e#4411#4812#0" expanded="false" />
+            <element signature="e#4860#5331#0" expanded="false" />
+            <element signature="e#5374#6600#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kafka/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kafka/Connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kafka/kafkarpc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
           <caret line="99" column="35" lean-forward="true" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
           <folding>
-            <element signature="e#1773#1904#0" expanded="false" />
-            <element signature="e#1947#2461#0" expanded="false" />
-            <element signature="e#2505#3114#0" expanded="false" />
-            <element signature="e#3933#4334#0" expanded="false" />
-            <element signature="e#4382#4853#0" expanded="false" />
-            <element signature="e#4896#6122#0" expanded="false" />
+            <element signature="e#1868#1999#0" expanded="false" />
+            <element signature="e#2042#2556#0" expanded="false" />
+            <element signature="e#2600#3209#0" expanded="false" />
+            <element signature="e#3256#3626#0" expanded="false" />
+            <element signature="e#4411#4812#0" expanded="false" />
+            <element signature="e#4860#5331#0" expanded="false" />
+            <element signature="e#5374#6600#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -297,12 +397,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1773#1904#0" expanded="false" />
-            <element signature="e#1947#2461#0" expanded="false" />
-            <element signature="e#2505#3114#0" expanded="false" />
-            <element signature="e#3933#4334#0" expanded="false" />
-            <element signature="e#4382#4853#0" expanded="false" />
-            <element signature="e#4896#6122#0" expanded="false" />
+            <element signature="e#1868#1999#0" expanded="false" />
+            <element signature="e#2042#2556#0" expanded="false" />
+            <element signature="e#2600#3209#0" expanded="false" />
+            <element signature="e#3256#3626#0" expanded="false" />
+            <element signature="e#4411#4812#0" expanded="false" />
+            <element signature="e#4860#5331#0" expanded="false" />
+            <element signature="e#5374#6600#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -336,12 +437,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1773#1904#0" expanded="false" />
-            <element signature="e#1947#2461#0" expanded="false" />
-            <element signature="e#2505#3114#0" expanded="false" />
-            <element signature="e#3933#4334#0" expanded="false" />
-            <element signature="e#4382#4853#0" expanded="false" />
-            <element signature="e#4896#6122#0" expanded="false" />
+            <element signature="e#1868#1999#0" expanded="false" />
+            <element signature="e#2042#2556#0" expanded="false" />
+            <element signature="e#2600#3209#0" expanded="false" />
+            <element signature="e#3256#3626#0" expanded="false" />
+            <element signature="e#4411#4812#0" expanded="false" />
+            <element signature="e#4860#5331#0" expanded="false" />
+            <element signature="e#5374#6600#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -377,18 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/kafka/Connection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -396,39 +490,48 @@
     <entry file="file://$PROJECT_DIR$/routes/passport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="126" column="16" lean-forward="false" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
-          <folding>
-            <element signature="e#1773#1904#0" expanded="false" />
-            <element signature="e#1947#2461#0" expanded="false" />
-            <element signature="e#2505#3114#0" expanded="false" />
-            <element signature="e#3933#4334#0" expanded="false" />
-            <element signature="e#4382#4853#0" expanded="false" />
-            <element signature="e#4896#6122#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/kafka/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/kafka/kafkarpc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        <state relative-caret-position="659">
+          <caret line="47" column="22" lean-forward="false" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="137" column="42" lean-forward="true" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
+          <folding>
+            <element signature="e#1868#1999#0" expanded="false" />
+            <element signature="e#2042#2556#0" expanded="false" />
+            <element signature="e#2600#3209#0" expanded="false" />
+            <element signature="e#3256#3626#0" expanded="false" />
+            <element signature="e#4411#4812#0" expanded="false" />
+            <element signature="e#4860#5331#0" expanded="false" />
+            <element signature="e#5374#6600#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

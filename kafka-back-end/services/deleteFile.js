@@ -13,7 +13,7 @@ function handle_deleteFile(msg, callback) {
 
         console.log("In deleteFile.js - Id is : " + msg);
 
-        filesCollection.remove({"_id": ObjectId("59fa63e8e2bd891938aaced2")}, function (err, user) {
+        filesCollection.remove({"_id": ObjectId(msg)}, function (err, user) {
             if(err) {
                 res.status = 500;
             }

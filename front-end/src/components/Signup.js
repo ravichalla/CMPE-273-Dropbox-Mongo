@@ -24,15 +24,19 @@ class Signup extends Component {
 
     handleSignup = (userdata) => {
         API.doSignup(userdata)
-            .then((req) => {
-                if (req.status === 201) {
+            .then((res) => {
+                if (res.status === 201) {
                     this.setState({
-                        message: "Sign up - Successfully signed up !!!"
+                        message: "SIGN UP SUCCESSFUL"
                     });
-                    console.log("Successful signup");
-                } else if (req.status === 401 || req.status === 500) {
+                    console.log("Successful sign up");
+                } else if (res.status === 401) {
                     this.setState({
-                        message: "Sign up - Sign up failed !!!"
+                        message: "SIGN UP FAILED"
+                    });
+                } else if (res.status === 500) {
+                    this.setState({
+                        message: "USER ALREADY EXISTS"
                     });
                 }
             });
