@@ -37,8 +37,8 @@ class Welcome extends Component {
         console.log("2");
 
         API.uploadFile(payload)
-            .then((status) => {
-                if (status === 201) {
+            .then((res) => {
+                if (res.status === 201) {
                     console.log("In Welcome.js - uploadFile completed");
                     API.getImages()
                         .then((res) => {
@@ -119,7 +119,7 @@ class Welcome extends Component {
             <div className="row justify-content-md-center">
                 <div>
                     <h2>
-                        <small>welcome to</small>
+                        <small>welcome to </small>
                         DROPBOX
                     </h2>
 

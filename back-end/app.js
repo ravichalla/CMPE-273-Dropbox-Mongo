@@ -91,12 +91,16 @@ app.post('/signup', function (req, res) {
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
 
+    var newFolderPath = path.resolve(__dirname,'./','public','uploads');
+    console.log("Making new directory in ------ " + newFolderPath + "/" + username);
+    shelljs.mkdir(newFolderPath + "/" + username);
+
     var payload = {
         "username": username,
         "password": password,
         "firstname": firstname,
         "lastname": lastname
-    }
+    };
 
     kafka.make_request('signup_request', 'signup_response', payload, function (err, results) {
         console.log("In app.js - signup : Results - " + results);
@@ -123,25 +127,33 @@ app.post('/deleteFile', function(req, res) {
        }
    });
 });
-//
-// var storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//         console.log(req.session.email);
-//         cb(null, './public/uploads/' + req.session.email + '/')
-//     },
-//     filename: function (req, file, cb) {
-//         console.log(file);
-//         cb(null, file.originalname)
-//     }
-// });
-//
-// var upload = multer({storage:storage});
 
-app.post('/uploadFile', function(req, res) {
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log(req.session.username);
+        cb(null, './public/uploads/' + req.session.username + '/')
+    },
+    filename: function (req, file, cb) {
+        console.log(file);
+        cb(null, file.originalname)
+    }
+});
+
+var upload = multer({storage:storage});
+
+app.post('/uploadFile', upload.single('myfile'), function(req, res) {
 
     console.log("In app.js - uploadFille - request contains : " + req);
 
-    kafka.make_request('upload_request', 'upload_response', req, function(err, results) {
+    var payload = {
+        "username": req.session.username,
+        "documentName": req.file.originalname,
+        "documentType": req.file.mimetype,
+        "path": req.file.path,
+        "star": false
+    }
+
+    kafka.make_request('upload_request', 'upload_response', payload, function(err, results) {
         if (err) {
             res.status(401).send();
         }

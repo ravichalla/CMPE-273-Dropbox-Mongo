@@ -35,34 +35,17 @@ KafkaRPC.prototype.makeRequest = function (request_queue, response_queue, conten
 
     self.setupResponseQueue(self.producer, request_queue, response_queue, function () {
 
-        if (request_queue === 'upload_request') {
-            var payloads = [
-                {
-                    topic: request_queue,
-                    messages: JSON.stringify({
-                        correlationId: correlationId,
-                        replyTo: response_queue
-                    }),
-                    file: {
-                      data: content
-                    },
-                    partition: 0
-                }
-            ];
-        }
-        else {
-            var payloads = [
-                {
-                    topic: request_queue,
-                    messages: JSON.stringify({
-                        correlationId: correlationId,
-                        replyTo: response_queue,
-                        data: content
-                    }),
-                    partition: 0
-                }
-            ];
-        }
+        var payloads = [
+            {
+                topic: request_queue,
+                messages: JSON.stringify({
+                    correlationId: correlationId,
+                    replyTo: response_queue,
+                    data: content
+                }),
+                partition: 0
+            }
+        ];
 
 
         self.producer.send(payloads, function (err, data) {

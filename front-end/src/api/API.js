@@ -56,7 +56,7 @@ export const doLogout = () =>
             return error;
         });
 
-export const getImages = (payload) =>
+export const getImages = () =>
     fetch(`${api}/getImages`, {
         method: 'GET',
         headers: {

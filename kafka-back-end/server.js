@@ -14,10 +14,6 @@ consumer.on('message', function (message) {
 
     var data = JSON.parse(message.value);
 
-    if(message.topic === 'upload_request') {
-
-    }
-
     console.log('reply topic : ' + data.replyTo);
 
     switch (message.topic) {

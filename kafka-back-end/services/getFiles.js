@@ -14,12 +14,12 @@ function handle_getFiles(msg, callback) {
 
         filesCollection.find({username: msg}).toArray(function (err, file) {
             if (file) {
-                console.log(file);
-                // console.log("2:" + file[0].email);
-                // console.log("3:" + file[0].documentName);
-                // console.log("4:" + file[0].documentType);
-                // console.log("5:" + file[0].path);
-                // console.log("6:" + file[0].star);
+                console.log("1:" + file);
+                console.log("2:" + file[0].username);
+                console.log("3:" + file[0].documentName);
+                console.log("4:" + file[0].documentType);
+                console.log("5:" + file[0].path);
+                console.log("6:" + file[0].star);
 
                 callback(null, file);
 
