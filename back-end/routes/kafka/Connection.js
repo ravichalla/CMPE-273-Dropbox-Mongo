@@ -4,7 +4,10 @@ var topics = [
     {topic: 'signup_response', partition: 0},
     {topic: 'getfiles_response', partition: 0},
     {topic: 'delete_response', partition: 0},
-    {topic: 'upload_response', partition: 0}
+    {topic: 'upload_response', partition: 0},
+    {topic: 'fileShare_response', partition: 0},
+    {topic: 'about_response', partition: 0}
+
 ];
 
 function ConnectionProvider() {

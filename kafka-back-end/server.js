@@ -4,6 +4,8 @@ var signup = require('./services/signup');
 var getFiles = require('./services/getFiles');
 var deleteFile = require('./services/deleteFile');
 var uploadFile = require('./services/uploadFile');
+var shareFile = require('./services/shareFile');
+var about = require('./services/about');
 
 var consumer = connection.getConsumer();
 var producer = connection.getProducer();
@@ -128,5 +130,53 @@ consumer.on('message', function (message) {
                 return;
             });
             break;
+
+        case "fileShare_request":
+
+            console.log("In server.js - shareFile_request case");
+            console.log("This is data.data : " + data.data);
+
+            shareFile.handle_shareFile(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
+
+        case "about_request":
+
+            console.log("In server.js - about_request case");
+            console.log("This is data.data : " + data.data);
+
+            about.handle_about(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break
     }
 });

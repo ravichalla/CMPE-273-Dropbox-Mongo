@@ -177,6 +177,34 @@ app.get('/getImages', function (req, res) {
     });
 });
 
+app.post('/shareFile', function (req, res) {
+
+    console.log("In app.js - shareFile - Request is : " + req);
+    console.log("1: " + req.body.username);
+    console.log("2: " + req.body.documentName);
+    console.log("3: " + req.body.path);
+    console.log("4: " + req.body.sharedWith);
+
+    var payload = {
+        "username": req.session.username,
+        "documentName": req.body.documentName,
+        "documentType": req.body.mimeType,
+        "path": req.body.path,
+        "sharedWith": req.body.sharedWith
+    }
+
+    kafka.make_request('fileShare_request', 'fileShare_response', payload, function(err, results) {
+
+        console.log("In app.js - fileShare : Results - " + results);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
+});
+
 app.post('/getDetails', function (req, res) {
     mongo.connect(mongoSessionURL, function () {
         var myCollection = mongo.collection('myCollection');
@@ -195,37 +223,37 @@ app.post('/getDetails', function (req, res) {
 });
 
 app.post('/about', function (req, res) {
-    mongo.connect(mongoSessionURL, function () {
-        var myCollection = mongo.collection('myCollection');
 
-        console.log("app.js - /about - " + req.body.username, req.body.overview, req.body.work);
+    var overview = req.body.overview;
+    var work = req.body.work;
+    var education = req.body.education;
+    var contactNumber = req.body.contactNumber;
+    var lifeEvents = req.body.lifeEvents;
+    var music = req.body.music;
+    var shows = req.body.shows;
+    var sports = req.body.sports;
 
-        myCollection.find({username: req.body.username}, function (err, user) {
-            console.log("1");
-            if (user) {
-                console.log("2");
-                myCollection.updateMany({username: req.body.username}, {
-                    $set: {
-                        overview: req.body.overview, work: req.body.work, education: req.body.education,
-                        contactNumber: req.body.contactNumber, lifeEvents: req.body.lifeEvents, music: req.body.music,
-                        shows: req.body.shows, sports: req.body.sports
-                    }
-                }, function (err, user) {
-                    console.log("3");
-                    if (err) {
-                        console.log("4");
-                        res.status(401).send();
-                    }
-                    res.status(201).send();
-                });
-            }
-            else {
-                console.log("5");
-                res.status(401).send();
-            }
-        });
+    var payload = {
+        "username": req.session.username,
+        "overview": overview,
+        "work": work,
+        "education": education,
+        "contactNumber": contactNumber,
+        "lifeEvents": lifeEvents,
+        "music": music,
+        "shows": shows,
+        "sports": sports
+    };
 
-    })
+    kafka.make_request('about_request', 'about_response', payload, function (err, results) {
+        console.log("In app.js - about : Results - " + results.status);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
 });
 
 module.exports = app;

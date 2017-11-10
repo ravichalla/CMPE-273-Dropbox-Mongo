@@ -5,6 +5,8 @@ import Welcome from "./Welcome";
 import Signup from './Signup';
 import About from './About';
 
+import '../login.css'
+
 class Login extends Component {
 
     state = {
@@ -52,50 +54,50 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="row justify-content-md-center">
-                <div className="col-md-3">
-                    <Route exact path="/" render={() => (
-                        <form>
-                            <div className="form-group">
-                                <h1>Login</h1>
-                            </div>
-                            <div className="form-group">
-                                <input
-                                    className="form-control"
-                                    type="text"
-                                    label="username"
-                                    placeholder="Enter username"
-                                    onChange={(event) => {
-                                        this.setState({
-                                            username: event.target.value
-                                        });
-                                    }}
-                                />
-                            </div>
+            <div className="container">
+                <div className="col-md-offset-5 col-md-4">
 
-                            <div className="form-group">
-                                <input
-                                    className="form-control"
-                                    type="password"
-                                    label="password"
-                                    placeholder="Enter Password"
-                                    onChange={(event) => {
-                                        this.setState({
-                                            password: event.target.value
-                                        });
-                                    }}
-                                />
-                            </div>
-                            <div className="form-group">
+                    <Route exact path="/" render={() => (
+                        <form className="form-login">
+
+                            <img src="https://goo.gl/yFaAFJ" alt="Icon"/>
+
+                            <h4>Login</h4>
+
+                            <input
+                                className="form-control"
+                                type="text"
+                                label="username"
+                                placeholder="Enter username"
+                                onChange={(event) => {
+                                    this.setState({
+                                        username: event.target.value
+                                    });
+                                }}
+                            />
+                            <br/>
+                            <input
+                                className="form-control"
+                                type="password"
+                                label="password"
+                                placeholder="Enter Password"
+                                onChange={(event) => {
+                                    this.setState({
+                                        password: event.target.value
+                                    });
+                                }}
+                            />
+                            <br/>
+                            <div className="wrapper">
                                 <button
-                                    className="btn btn-primary"
+                                    className="btn btn-primary btn-group-sm"
                                     type="button"
                                     onClick={() => this.handleSubmit(this.state)}>
                                     Login
                                 </button>
                                 <br/>
                                 <br/>
-                                <button className="btn btn-success" onClick={() => {
+                                <button className="btn btn-success btn-group-sm	" onClick={() => {
                                     this.props.history.push("/signup");
                                 }}>
                                     Signup
@@ -103,23 +105,22 @@ class Login extends Component {
                             </div>
                         </form>
                     )}/>
-
-                    <Route exact path="/signup" render={() => (
-                        <div>
-                            <Signup/>
-                        </div>
-                    )}/>
-
-                    <Route exact path="/welcome" render={() => (
-                        <Welcome username={this.state.username} firstname={this.state.firstname} lastname={this.state.lastname}/>
-                    )}/>
-
-                    <Route path="/about" render={() => (
-                        <About username={this.state.username}/>
-                    )}/>
-
-
                 </div>
+
+                <Route exact path="/signup" render={() => (
+                    <div>
+                        <Signup/>
+                    </div>
+                )}/>
+
+                <Route exact path="/welcome" render={() => (
+                    <Welcome username={this.state.username} firstname={this.state.firstname}
+                             lastname={this.state.lastname}/>
+                )}/>
+
+                <Route path="/about" render={() => (
+                    <About username={this.state.username}/>
+                )}/>
             </div>
         );
     }

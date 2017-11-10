@@ -13,7 +13,7 @@ import Login from "./components/Login";
     class App extends Component {
         render() {
             return (
-                <div className="App">
+                <div>
                     {/*<HomePage/>*/}
                     {/*<NewHomePage/>*/}
                     <BrowserRouter>

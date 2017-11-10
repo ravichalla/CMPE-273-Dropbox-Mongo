@@ -11,7 +11,7 @@ export const doLogin = (payload) =>
             ...headers,
             'Content-Type': 'application/json'
         },
-        credentials:'include',
+        credentials: 'include',
         body: JSON.stringify(payload)
     }).then(res => {
         console.log(res);
@@ -29,7 +29,7 @@ export const doSignup = (payload) =>
             ...headers,
             'Content-Type': 'application/json'
         },
-        credentials:'include',
+        credentials: 'include',
         body: JSON.stringify(payload)
     }).then(res => {
         console.log("API.js - doSignup - " + res);
@@ -46,7 +46,7 @@ export const doLogout = () =>
         headers: {
             ...headers
         },
-        credentials:'include'
+        credentials: 'include'
     }).then(res => {
         return res.status;
         res.status;
@@ -72,6 +72,19 @@ export const getImages = () =>
             return error;
         });
 
+export const uploadFile = (payload) =>
+    fetch(`${api}/uploadFile`, {
+        method: 'POST',
+        credentials: 'include',
+        body: payload
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error.");
+            return error;
+        });
+
 export const deleteFile = (payload) =>
     fetch(`${api}/deleteFile`, {
         method: 'POST',
@@ -89,16 +102,37 @@ export const deleteFile = (payload) =>
             return error;
         });
 
-export const uploadFile = (payload) =>
-    fetch(`${api}/uploadFile`, {
+export const shareFile = (payload) =>
+    fetch(`${api}/shareFile`, {
         method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
         credentials: 'include',
-        body: payload
+        body: JSON.stringify(payload)
     }).then(res => {
         return res;
     })
         .catch(error => {
-            console.log("This is error.");
+            console.log("This is error");
+            return error;
+        });
+
+export const userAbout = (payload) =>
+    fetch(`${api}/about`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error");
             return error;
         });
 
@@ -109,7 +143,7 @@ export const getDetails = (payload) =>
             ...headers,
             'Content-Type': 'application/json'
         },
-        credentials:'include',
+        credentials: 'include',
         body: JSON.stringify(payload)
     }).then(res => {
         console.log("API.js - getDetails - " + res);
@@ -124,19 +158,3 @@ export const getDetails = (payload) =>
             return error;
         });
 
-export const userAbout = (payload) =>
-    fetch(`${api}/about`, {
-        method: 'POST',
-        headers: {
-            ...headers,
-            'Content-Type' : 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify(payload)
-    }).then(res => {
-        res.status;
-    })
-        .catch(error => {
-            console.log("This is error");
-            return error;
-        });

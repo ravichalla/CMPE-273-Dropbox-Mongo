@@ -3,6 +3,9 @@ import {Route, Link, withRouter} from 'react-router-dom';
 import * as API from '../api/API';
 import About from './About';
 
+import "../welcome.css";
+import "../login.css";
+
 class Welcome extends Component {
 
     state = {
@@ -31,10 +34,11 @@ class Welcome extends Component {
     // };
 
     handleFileUpload = (event) => {
-        console.log("1");
+        console.log("In handleFileUpload");
         const payload = new FormData();
         payload.append('myfile', event.target.files[0]);
-        console.log("2");
+        console.log("The event.target.files[0] : " + event.target.files[0]);
+        console.log("The payload is : " + payload);
 
         API.uploadFile(payload)
             .then((res) => {
@@ -45,7 +49,7 @@ class Welcome extends Component {
                             res.json().then((data) => {
                                     console.log(data);
                                     this.setState({
-                                        result: data.result,
+                                        result: data,
                                         statusMessage: 'File successfully UPLOADED into the local file system'
                                     })
                                 }
@@ -53,6 +57,53 @@ class Welcome extends Component {
                         });
                 }
             });
+    };
+
+    handleFileShare = (fileObject) => {
+        console.log("In handleFileShare");
+
+        var sharedUser = prompt("Enter the valid username to share");
+
+        let payload = {
+            "username": fileObject.username,
+            "documentName": fileObject.documentName,
+            "mimeType": fileObject.mimeType,
+            "path": fileObject.path,
+            "sharedWith": sharedUser
+        };
+
+        console.log("0: " + payload);
+        console.log("1: " + payload.username);
+        console.log("2: " + payload.documentName);
+        console.log("3: " + payload.mimeType);
+        console.log("4: " + payload.path);
+        console.log("5: " + payload.sharedWith);
+
+        API.shareFile(payload)
+            .then((res) => {
+                    console.log(res.status);
+                    if (res.status === 201) {
+                        this.setState({
+                            statusMessage: "FILE SHARE SUCCESSFUL"
+                        });
+                    }
+                    else if (res.status === 404) {
+                        this.setState({
+                            statusMessage: "SUCH USER DOESN'T EXIST"
+                        });
+                    }
+                    else {
+                        console.log("INTERNAL ERROR");
+                    }
+                }
+            )
+    };
+
+    componentWillMount() {
+        console.log("Welcome.js - In componentWillMount");
+        this.setState({
+            username: this.props.username
+        });
     };
 
     handleDeleteFile = (payload) => {
@@ -63,7 +114,7 @@ class Welcome extends Component {
 
         API.deleteFile(payload1)
             .then((res) => {
-            console.log("1:" + res.status);
+                console.log("1:" + res.status);
 
                 if (res.status === 201) {
                     console.log("In handleDeleteFolder");
@@ -80,14 +131,8 @@ class Welcome extends Component {
                         });
                 }
             });
-    }
-
-    componentWillMount() {
-        console.log("Welcome.js - In componentWillMount");
-        this.setState({
-            username: this.props.username
-        });
     };
+
 
     componentDidMount() {
         API.getImages()
@@ -116,18 +161,15 @@ class Welcome extends Component {
 
     render() {
         return (
-            <div className="row justify-content-md-center">
-                <div>
-                    <h2>
-                        <small>welcome to </small>
-                        DROPBOX
-                    </h2>
 
-                    <h4>First name : {this.state.firstname}</h4>
-                    <h4>Last name : {this.state.lastname}</h4>
-                    <h5>Username : {this.state.username}</h5>
 
-                    <div className="form-group">
+            <div className="container">
+                <img src = "https://goo.gl/yFaAFJ" height = "80" width = "80"/>
+                <h2>Dropbox</h2>
+                <p class="lead">Welcome</p>
+
+                <div className = "col-sm-5">
+                    <div className="row">
                         <button className="btn btn-success" onClick={() => {
                             this.props.history.push("/about");
                         }}>
@@ -135,7 +177,9 @@ class Welcome extends Component {
                         </button>
                     </div>
 
-                    <div className="form-group">
+                    <br/>
+
+                    <div className="row">
                         <button
                             className="btn btn-primary"
                             type="button"
@@ -143,20 +187,25 @@ class Welcome extends Component {
                             Logout
                         </button>
                     </div>
+
+                    <br/>
+
+                    <div className="row">
+                    <input
+                        className={'fileupload'}
+                        type="file"
+                        name="myfile"
+                        onChange={this.handleFileUpload}
+                    />
+                    </div>
+
+                    <div>
+                        {this.state.statusMessage}
+                    </div>
+
                 </div>
 
-                <input
-                className={'fileupload'}
-                type="file"
-                name="myfile"
-                onChange={this.handleFileUpload}
-                />
-
-                <div>
-                    {this.state.statusMessage}
-                </div>
-
-                <div>
+                <div className = "col-sm-7">
                     {
                         this.state.result.map((fileObject) => {
                                 return (
@@ -169,9 +218,13 @@ class Welcome extends Component {
                                             <td>{fileObject.documentType}</td>
                                             <td>{fileObject.path}</td>
                                             <td>{fileObject.star}</td>
+                                            <td>{fileObject.sharedWith}</td>
                                             <td>
-                                                <button onClick={() => this.handleDeleteFile(fileObject._id)}>Delete
-                                                </button>
+                                                <img src="../images/delete_icon.png"/>
+
+                                            </td>
+                                            <td>
+                                                <button onClick={() => this.handleFileShare(fileObject)}>Share</button>
                                             </td>
                                         </tr>
                                         </tbody>

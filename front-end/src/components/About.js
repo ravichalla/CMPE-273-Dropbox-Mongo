@@ -35,15 +35,16 @@ class About extends Component {
 
     handleAbout = (payload) => {
         API.userAbout(payload)
-            .then((status) => {
-                if (status === 201) {
+            .then((res) => {
+                if (res.status === 201) {
                     this.setState({
-                        aboutStatusMessage: "User account information update successful!!",
+
+                        aboutStatusMessage: "USER INFORMATION SUCCESSFULLY UPDATED",
                     });
                     console.log("Account update successful");
-                } else if (status === 401) {
+                } else if (res.status === 500) {
                     this.setState({
-                        aboutStatusMessage: "Something weird happened. Please try again !!!"
+                        aboutStatusMessage: "INTERNAL ERROR OCCURED"
                     });
                 }
             });
