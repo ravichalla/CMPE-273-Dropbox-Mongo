@@ -12,7 +12,7 @@ function handle_about(msg, callback) {
 
         console.log("The username is : " + msg.username);
 
-        myCollection.updateMany({username: msg.username}, {
+        myCollection.update({username: msg.username}, {
             $set: {
                 overview: msg.overview, work: msg.work, education: msg.education,
                 contactNumber: msg.contactNumber, lifeEvents: msg.lifeEvents, music: msg.music,

@@ -128,6 +128,21 @@ app.post('/deleteFile', function(req, res) {
    });
 });
 
+app.post('/starFile', function(req, res) {
+
+    console.log("In app.js - starFile - id : " + req.body.id);
+
+    kafka.make_request('star_request', 'star_response', req.body.id, function(err, results) {
+        console.log("In app.js - starFile : Results - " + results);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
+});
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         console.log(req.session.username);

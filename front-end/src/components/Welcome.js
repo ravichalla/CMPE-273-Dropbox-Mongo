@@ -13,7 +13,8 @@ class Welcome extends Component {
         firstname: this.props.firstname,
         lastname: this.props.lastname,
         statusMessage: '',
-        result: []
+        result: [],
+        starImage: "https://cdn3.iconfinder.com/data/icons/web-and-user-interface-9/48/407-512.png"
     };
 
     // handleAbout = (userdata) => {
@@ -50,7 +51,7 @@ class Welcome extends Component {
                                     console.log(data);
                                     this.setState({
                                         result: data,
-                                        statusMessage: 'File successfully UPLOADED into the local file system'
+                                        statusMessage: 'FILE UPLOAD SUCCESSFUL'
                                     })
                                 }
                             )
@@ -133,6 +134,27 @@ class Welcome extends Component {
             });
     };
 
+    handleStarFile = (payload) => {
+        let payload1 = {id: payload};
+
+        API.starFile(payload1)
+            .then((res) => {
+                console.log("1---------" + res.status);
+                if (res.status === 201) {
+
+                    API.getImages()
+                        .then((res) => {
+                            res.json().then((data) => {
+                                console.log(data);
+                                this.setState({
+                                    result: data,
+                                    statusMessage: ''
+                                })
+                            })
+                        });
+                }
+            });
+    };
 
     componentDidMount() {
         API.getImages()
@@ -162,15 +184,26 @@ class Welcome extends Component {
     render() {
         return (
 
-
             <div className="container">
-                <img src = "https://goo.gl/yFaAFJ" height = "80" width = "80"/>
-                <h2>Dropbox</h2>
-                <p class="lead">Welcome</p>
+                <div className="row">
 
-                <div className = "col-sm-5">
+                    <div className="col-sm-3">
+                        <img src="https://goo.gl/yFaAFJ" height="80" width="80"/>
+                        <h2>Dropbox</h2>
+                    </div>
+
+                    <div className="col-sm-9">
+                        <br/><br/><br/><br/><br/>
+
+                        <h3>Home</h3>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div className="col-sm-3">
                     <div className="row">
-                        <button className="btn btn-success" onClick={() => {
+                        <button className="btn btn-primary" onClick={() => {
                             this.props.history.push("/about");
                         }}>
                             About
@@ -181,7 +214,7 @@ class Welcome extends Component {
 
                     <div className="row">
                         <button
-                            className="btn btn-primary"
+                            className="btn btn-danger"
                             type="button"
                             onClick={this.handleLogout}>
                             Logout
@@ -191,41 +224,52 @@ class Welcome extends Component {
                     <br/>
 
                     <div className="row">
-                    <input
-                        className={'fileupload'}
-                        type="file"
-                        name="myfile"
-                        onChange={this.handleFileUpload}
-                    />
+                        <input
+                            className={'fileupload'}
+                            type="file"
+                            name="myfile"
+                            onChange={this.handleFileUpload}
+                        />
                     </div>
 
-                    <div>
+                    <br/>
+
+                    <div className="row">
                         {this.state.statusMessage}
                     </div>
 
                 </div>
 
-                <div className = "col-sm-7">
+                <div className="col-sm-9">
                     {
                         this.state.result.map((fileObject) => {
                                 return (
-                                    <table className={'table table-striped'} key={fileObject.id}>
+                                    <table className="table" key={fileObject.id}>
                                         <tbody>
                                         <tr>
                                             {/*<td>{fileObject._id}</td>*/}
-                                            <td>{fileObject.username}</td>
-                                            <td>{fileObject.documentName}</td>
-                                            <td>{fileObject.documentType}</td>
-                                            <td>{fileObject.path}</td>
-                                            <td>{fileObject.star}</td>
-                                            <td>{fileObject.sharedWith}</td>
-                                            <td>
-                                                <img src="../images/delete_icon.png"/>
+                                            <td className="col-sm-2">{fileObject.documentName}</td>
+                                            <td className="col-sm-1">{fileObject.documentType}</td>
+                                            <td className="col-sm-3">{fileObject.path}</td>
+                                            <td className="col-sm-2">{fileObject.sharedWith}</td>
 
+                                            <td className="col-sm-1">
+                                                <td>
+                                                    <img src = {fileObject.starImage}
+                                                         onClick={() => this.handleStarFile(fileObject._id)} height="20" width="20">
+                                                    </img>
+                                                </td>
+                                                <td>
+                                                    <img src = "https://image.flaticon.com/icons/png/128/61/61391.png"
+                                                         onClick={() => this.handleDeleteFile(fileObject._id)} height="20" width="20">
+                                                    </img>
+                                                </td>
+                                                <td>
+                                                    <img src = "https://www.shareicon.net/data/128x128/2015/09/19/643381_internet_512x512.png"
+                                                         onClick={() => this.handleFileShare(fileObject)} height="20" width="20"></img>
+                                                </td>
                                             </td>
-                                            <td>
-                                                <button onClick={() => this.handleFileShare(fileObject)}>Share</button>
-                                            </td>
+
                                         </tr>
                                         </tbody>
                                     </table>

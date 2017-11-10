@@ -1,3 +1,6 @@
+.table { table-layout: fixed; }
+.table th, table td { overflow: hidden; }
+
 .nav-tabs-dropdown {
     display: none;
     border-bottom-left-radius: 0;

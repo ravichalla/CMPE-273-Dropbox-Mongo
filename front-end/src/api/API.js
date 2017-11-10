@@ -136,6 +136,23 @@ export const userAbout = (payload) =>
             return error;
         });
 
+export const starFile = (payload) =>
+    fetch(`${api}/starFile`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error.");
+            return error;
+        });
+
 export const getDetails = (payload) =>
     fetch(`${api}/getDetails`, {
         method: 'POST',

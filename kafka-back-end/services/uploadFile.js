@@ -22,7 +22,7 @@ function handle_uploadFile(msg, callback) {
         console.log("In uploadFile.js - Document path is : " + msg.star);
 
 
-        filesCollection.insert({username : msg.username, documentName : msg.documentName, documentType : msg.mimetype, path : msg.path, star : msg.star}, function (err, user) {
+        filesCollection.insert({username : msg.username, documentName : msg.documentName, documentType : msg.mimetype, path : msg.path, star : false, starImage : "https://goo.gl/6utW2q"}, function (err, user) {
             if(err) {
                 res.status = 500;
             }

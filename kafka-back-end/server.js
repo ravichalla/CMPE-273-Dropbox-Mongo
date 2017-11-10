@@ -6,6 +6,7 @@ var deleteFile = require('./services/deleteFile');
 var uploadFile = require('./services/uploadFile');
 var shareFile = require('./services/shareFile');
 var about = require('./services/about');
+var starFile = require('./services/starFile');
 
 var consumer = connection.getConsumer();
 var producer = connection.getProducer();
@@ -89,6 +90,28 @@ consumer.on('message', function (message) {
             console.log("In server.js - delete_request case");
             console.log("This is data.data : " + data.data);
             deleteFile.handle_deleteFile(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
+
+        case "star_request":
+            console.log("In server.js - star_request case");
+            console.log("This is data.data : " + data.data);
+            starFile.handle_starFile(data.data, function (err, res) {
                 var payloads = [
                     {
                         topic: data.replyTo,
