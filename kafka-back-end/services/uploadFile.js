@@ -17,12 +17,12 @@ function handle_uploadFile(msg, callback) {
 
         console.log("In uploadFile.js - Message is : " + msg.username);
         console.log("In uploadFile.js - Document name : " + msg.documentName);
-        console.log("In uploadFile.js - Document type is : " + msg.mimetype);
+        console.log("In uploadFile.js - Document type is : " + msg.documentType);
         console.log("In uploadFile.js - Document path is : " + msg.path);
         console.log("In uploadFile.js - Document path is : " + msg.star);
 
 
-        filesCollection.insert({username : msg.username, documentName : msg.documentName, documentType : msg.mimetype, path : msg.path, star : false, starImage : "https://goo.gl/6utW2q"}, function (err, user) {
+        filesCollection.insert({username : msg.username, documentName : msg.documentName, documentType : msg.documentType, path : msg.path, star : false, starImage : "https://goo.gl/6utW2q", fileOwner: "self"}, function (err, user) {
             if(err) {
                 res.status = 500;
             }

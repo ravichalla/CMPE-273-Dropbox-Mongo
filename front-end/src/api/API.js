@@ -153,20 +153,18 @@ export const starFile = (payload) =>
             return error;
         });
 
-export const getDetails = (payload) =>
+export const getDetails = () =>
     fetch(`${api}/getDetails`, {
-        method: 'POST',
+        method: 'GET',
         headers: {
             ...headers,
             'Content-Type': 'application/json'
         },
-        credentials: 'include',
-        body: JSON.stringify(payload)
+        credentials: 'include'
     }).then(res => {
-        console.log("API.js - getDetails - " + res);
-        console.log("API.js - getDetails - response " + res);
-        console.log("API.js - getDetails - response " + res.firstname);
-        console.log("API.js - getDetails - response " + res.lastname);
+        console.log(res.body);
+        console.log("API.js - getDetails - response " + res.overview);
+        console.log("API.js - getDetails - response " + res.status);
 
         return res;
     })

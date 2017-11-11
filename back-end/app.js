@@ -159,7 +159,9 @@ var upload = multer({storage:storage});
 app.post('/uploadFile', upload.single('myfile'), function(req, res) {
 
     console.log("In app.js - uploadFille - request contains : " + req);
+    console.log("In app.js - uploadFille - request contains : " + req.file);
 
+    console.log("The FILE TYPE IS : " + req.file.mimetype);
     var payload = {
         "username": req.session.username,
         "documentName": req.file.originalname,
@@ -182,7 +184,7 @@ app.post('/uploadFile', upload.single('myfile'), function(req, res) {
 app.get('/getImages', function (req, res) {
     console.log("In app.js - getImages - Username is " + req.session.username);
     kafka.make_request('getfiles_request', 'getfiles_response', req.session.username, function(err, results) {
-        console.log("In app.js - signup : Results - " + results);
+        console.log("In app.js - getImages : Results - " + results);
         if (err) {
             res.status(401).send();
         }
@@ -220,21 +222,18 @@ app.post('/shareFile', function (req, res) {
     });
 });
 
-app.post('/getDetails', function (req, res) {
-    mongo.connect(mongoSessionURL, function () {
-        var myCollection = mongo.collection('myCollection');
+app.get('/getDetails', function (req, res) {
+    console.log("In app.js - getDetails - Username is " + req.session.username);
 
-        console.log("app.js - getDetails - " + req.username);
-        console.log("app.js - getDetails - " + req.body.username);
-
-        myCollection.findOne({username: req.body.username}, function (err, user) {
-            if (err) {
-                res.status(500).send();
-            }
-            return res.status(201).send(user);
-        });
-
-    })
+    kafka.make_request('getdetails_request', 'getdetails_response', req.session.username, function(err, results) {
+        console.log("In app.js - getDetails : Results - " + results.overview);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
 });
 
 app.post('/about', function (req, res) {

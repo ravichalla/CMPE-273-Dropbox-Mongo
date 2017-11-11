@@ -17,66 +17,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="113" column="30" lean-forward="false" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
-              <folding>
-                <element signature="e#763#1556#0" expanded="false" />
-                <element signature="e#1566#2288#0" expanded="false" />
-                <element signature="e#2298#3091#0" expanded="false" />
-                <element signature="e#3101#3890#0" expanded="false" />
-                <element signature="e#4691#5482#0" expanded="false" />
-                <element signature="e#5492#6287#0" expanded="false" />
-                <element signature="e#6297#7075#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="starFile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/starFile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/about.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getFiles.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/services/getFiles.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shareFile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/shareFile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="278">
+              <caret line="218" column="36" lean-forward="true" selection-start-line="218" selection-start-column="36" selection-end-line="218" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -85,38 +27,18 @@
       <file leaf-file-name="uploadFile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/uploadFile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="184" lean-forward="false" selection-start-line="24" selection-start-column="184" selection-end-line="24" selection-end-column="184" />
+            <state relative-caret-position="253">
+              <caret line="24" column="207" lean-forward="false" selection-start-line="24" selection-start-column="207" selection-end-line="24" selection-end-column="207" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deleteFile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/deleteFile.js">
+      <file leaf-file-name="shareFile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/services/shareFile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="8" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/signup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kafka/Connection.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="144">
+              <caret line="17" column="78" lean-forward="false" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -142,14 +64,14 @@
       <list>
         <option value="$PROJECT_DIR$/services/signup.js" />
         <option value="$PROJECT_DIR$/services/deleteFile.js" />
+        <option value="$PROJECT_DIR$/services/login.js" />
+        <option value="$PROJECT_DIR$/services/starFile.js" />
+        <option value="$PROJECT_DIR$/services/getFiles.js" />
         <option value="$PROJECT_DIR$/kafka/Connection.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/services/about.js" />
-        <option value="$PROJECT_DIR$/services/login.js" />
         <option value="$PROJECT_DIR$/services/uploadFile.js" />
         <option value="$PROJECT_DIR$/services/shareFile.js" />
-        <option value="$PROJECT_DIR$/services/starFile.js" />
-        <option value="$PROJECT_DIR$/services/getFiles.js" />
       </list>
     </option>
   </component>
@@ -164,7 +86,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="878" />
@@ -184,7 +106,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,7 +128,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,15 +198,17 @@
       <workItem from="1510111148375" duration="1821000" />
       <workItem from="1510178418049" duration="7029000" />
       <workItem from="1510258581432" duration="10000" />
-      <workItem from="1510258599316" duration="11138000" />
+      <workItem from="1510258599316" duration="11976000" />
+      <workItem from="1510363191761" duration="5997000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93346000" />
+    <option name="totallyTimeSpent" value="100181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1860817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -294,7 +218,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4101307" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21895425" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -329,15 +253,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -393,15 +309,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -457,15 +365,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -521,15 +421,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,15 +477,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -633,15 +517,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="80" column="3" lean-forward="false" selection-start-line="80" selection-start-column="3" selection-end-line="80" selection-end-column="3" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -686,16 +562,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/signup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kafka/Connection.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -708,66 +576,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="113" column="30" lean-forward="false" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
-          <folding>
-            <element signature="e#763#1556#0" expanded="false" />
-            <element signature="e#1566#2288#0" expanded="false" />
-            <element signature="e#2298#3091#0" expanded="false" />
-            <element signature="e#3101#3890#0" expanded="false" />
-            <element signature="e#4691#5482#0" expanded="false" />
-            <element signature="e#5492#6287#0" expanded="false" />
-            <element signature="e#6297#7075#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/shareFile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="476">
           <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/about.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/starFile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="595">
           <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/uploadFile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="184" lean-forward="false" selection-start-line="24" selection-start-column="184" selection-end-line="24" selection-end-column="184" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/getFiles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka/Connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/about.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="218" column="36" lean-forward="true" selection-start-line="218" selection-start-column="36" selection-end-line="218" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/uploadFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="24" column="207" lean-forward="false" selection-start-line="24" selection-start-column="207" selection-end-line="24" selection-end-column="207" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/shareFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="17" column="78" lean-forward="false" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
           <folding />
         </state>
       </provider>

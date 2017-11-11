@@ -67,6 +67,7 @@ consumer.on('message', function (message) {
         case "getfiles_request":
             console.log("In server.js - getfiles_request case");
             console.log("This is data.data : " + data.data);
+
             getFiles.handle_getFiles(data.data, function (err, res) {
                 var payloads = [
                     {
@@ -200,6 +201,30 @@ consumer.on('message', function (message) {
                 });
                 return;
             });
-            break
+            break;
+
+        case "getdetails_request":
+
+            console.log("In server.js - getdetails_request case");
+            console.log("This is data.data : " + data.data);
+
+            about.handle_getDetails(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
     }
 });

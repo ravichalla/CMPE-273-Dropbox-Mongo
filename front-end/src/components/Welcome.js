@@ -14,25 +14,8 @@ class Welcome extends Component {
         lastname: this.props.lastname,
         statusMessage: '',
         result: [],
-        starImage: "https://cdn3.iconfinder.com/data/icons/web-and-user-interface-9/48/407-512.png"
+        starImage: ''
     };
-
-    // handleAbout = (userdata) => {
-    //     API.updateAbout(userdata)
-    //         .then((status) => {
-    //             if (status === 201) {
-    //                 this.setState({
-    //                     firstname: userdata.firstname,
-    //                     lastname: userdata.lastname
-    //                 });
-    //                 console.log("Successful login");
-    //             } else if (status === 401) {
-    //                 this.setState({
-    //                     message: "Welcome.js - Fetch unsuccessful !!!"
-    //                 });
-    //             }
-    //         });
-    // };
 
     handleFileUpload = (event) => {
         console.log("In handleFileUpload");
@@ -248,25 +231,34 @@ class Welcome extends Component {
                                         <tbody>
                                         <tr>
                                             {/*<td>{fileObject._id}</td>*/}
-                                            <td className="col-sm-2">{fileObject.documentName}</td>
-                                            <td className="col-sm-1">{fileObject.documentType}</td>
+
+                                            <td className="col-sm-4">
+                                                <td>{fileObject.documentName} : </td>
+
+                                                <td>{fileObject.documentType}</td>
+                                            </td>
+
                                             <td className="col-sm-3">{fileObject.path}</td>
-                                            <td className="col-sm-2">{fileObject.sharedWith}</td>
+                                            <td className="col-sm-1">{fileObject.fileOwner}</td>
 
                                             <td className="col-sm-1">
                                                 <td>
-                                                    <img src = {fileObject.starImage}
-                                                         onClick={() => this.handleStarFile(fileObject._id)} height="20" width="20">
+                                                    <img src={fileObject.starImage}
+                                                         onClick={() => this.handleStarFile(fileObject._id)} height="20"
+                                                         width="20">
                                                     </img>
                                                 </td>
                                                 <td>
-                                                    <img src = "https://image.flaticon.com/icons/png/128/61/61391.png"
-                                                         onClick={() => this.handleDeleteFile(fileObject._id)} height="20" width="20">
+                                                    <img src="https://image.flaticon.com/icons/png/128/61/61391.png"
+                                                         onClick={() => this.handleDeleteFile(fileObject._id)} height="20"
+                                                         width="20">
                                                     </img>
                                                 </td>
                                                 <td>
-                                                    <img src = "https://www.shareicon.net/data/128x128/2015/09/19/643381_internet_512x512.png"
-                                                         onClick={() => this.handleFileShare(fileObject)} height="20" width="20"></img>
+                                                    <img
+                                                        src="https://www.shareicon.net/data/128x128/2015/09/19/643381_internet_512x512.png"
+                                                        onClick={() => this.handleFileShare(fileObject)} height="20"
+                                                        width="20"></img>
                                                 </td>
                                             </td>
 

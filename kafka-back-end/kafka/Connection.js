@@ -7,7 +7,8 @@ var topics = [
     {topic: 'upload_request', partition: 0},
     {topic: 'fileShare_request', partition: 0},
     {topic: 'about_request', partition: 0},
-    {topic: 'star_request', partition: 0}
+    {topic: 'star_request', partition: 0},
+    {topic: 'getdetails_request', partition: 0}
 ];
 
 function ConnectionProvider() {

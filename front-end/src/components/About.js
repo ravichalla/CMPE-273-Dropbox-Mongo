@@ -21,19 +21,33 @@ class About extends Component {
     };
 
     componentWillMount() {
-        console.log("About - componentWillMount - username is " + this.props.username);
-        this.setState({
-            username: this.props.username,
-            overview: '',
-            work: '',
-            education: '',
-            contactNumber: '',
-            lifeEvents: '',
-            music: '',
-            shows: '',
-            sports: '',
-            aboutStatusMessage: ''
-        });
+        API.getDetails()
+            .then((res) => {
+                console.log("1 . Response status is --- " + res.status);
+                res.json().then((data) => {
+                    console.log("2 . Response status is --- " + data.status);
+
+                    if (data.status === 204) {
+                        console.log("The response overview is : " + data.overview);
+                        this.setState({
+                            overview: data.overview,
+                            work: data.work,
+                            education: data.education,
+                            contactNumber: data.contactNumber,
+                            lifeEvents: data.lifeEvents,
+                            music: data.music,
+                            shows: data.shows,
+                            sports: data.sports,
+                            aboutStatusMessage: "USER INFORMATION FETCHED SUCCESSFULLY"
+                        });
+                        console.log("Account update successful - 1");
+                    } else if (data.status === 500) {
+                        this.setState({
+                            aboutStatusMessage: "INTERNAL ERROR OCCURRED"
+                        });
+                    }
+                })
+            });
     }
 
     handleAbout = (payload) => {
@@ -41,13 +55,12 @@ class About extends Component {
             .then((res) => {
                 if (res.status === 201) {
                     this.setState({
-
-                        aboutStatusMessage: "USER INFORMATION SUCCESSFULLY UPDATED",
+                        aboutStatusMessage: "USER INFORMATION SUCCESSFULLY UPDATED"
                     });
-                    console.log("Account update successful");
+                    console.log("Account update successful - 2");
                 } else if (res.status === 500) {
                     this.setState({
-                        aboutStatusMessage: "INTERNAL ERROR OCCURED"
+                        aboutStatusMessage: "INTERNAL ERROR OCCURRED"
                     });
                 }
             });
@@ -112,128 +125,182 @@ class About extends Component {
 
                 <div className="col-sm-9">
 
-                    <form>
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="overview"
-                                placeholder="User Overview"
-                                onChange={(event) => {
-                                    this.setState({
-                                        overview: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                    <table className="table table-inverse">
+                        <tr>
+                            <td className="col-sm-3"><h4>User Overview</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="overview"
+                                        placeholder="User Overview"
+                                        value={this.state.overview}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                overview: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="work"
-                                placeholder="Work Information"
-                                onChange={(event) => {
-                                    this.setState({
-                                        work: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4>Work Information</h4></td>
+                            <td className="col-sm-6">
+                                <div>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="work"
+                                        placeholder="Work Information"
+                                        value={this.state.work}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                work: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <td className="col-sm-3"><h4>Education Information</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="education"
+                                        placeholder="Education Information"
+                                        value={this.state.education}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                education: event.target.value
+                                            });
+                                        }}>
+                                    </input>
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="education"
-                                placeholder="Education Information"
-                                onChange={(event) => {
-                                    this.setState({
-                                        education: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4>Contact Number</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="contactNumber"
+                                        placeholder="Contact Number"
+                                        value={this.state.contactNumber}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                contactNumber: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="contactNumber"
-                                placeholder="Contact Number"
-                                onChange={(event) => {
-                                    this.setState({
-                                        contactNumber: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4>Life Events</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="lifeEvents"
+                                        placeholder="Life Events"
+                                        value={this.state.lifeEvents}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                lifeEvents: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="lifeEvents"
-                                placeholder="Life Events"
-                                onChange={(event) => {
-                                    this.setState({
-                                        lifeEvents: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4>Music</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="music"
+                                        placeholder="Music"
+                                        value={this.state.music}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                music: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="music"
-                                placeholder="Music"
-                                onChange={(event) => {
-                                    this.setState({
-                                        music: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4>Shows</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="shows"
+                                        placeholder="Shows"
+                                        value={this.state.shows}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                shows: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="shows"
-                                placeholder="Shows"
-                                onChange={(event) => {
-                                    this.setState({
-                                        shows: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4>Sports</h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        label="sports"
+                                        placeholder="Sports"
+                                        value={this.state.sports}
+                                        onChange={(event) => {
+                                            this.setState({
+                                                sports: event.target.value
+                                            });
+                                        }}
+                                    />
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="text"
-                                label="sports"
-                                placeholder="Sports"
-                                onChange={(event) => {
-                                    this.setState({
-                                        sports: event.target.value
-                                    });
-                                }}
-                            />
-                        </div>
+                        <tr>
+                            <td className="col-sm-3"><h4></h4></td>
+                            <td className="col-sm-6">
+                                <div className="form-group">
+                                    <button
+                                        className="btn btn-primary"
+                                        type="button"
+                                        onClick={() => this.handleAbout(this.state)}>
+                                        Update
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div className="form-group">
-                            <button
-                                className="btn btn-primary"
-                                type="button"
-                                onClick={() => this.handleAbout(this.state)}>
-                                Update
-                            </button>
-                        </div>
-                    </form>
+                    </table>
                 </div>
             </div>
         );
