@@ -320,5 +320,28 @@ consumer.on('message', function (message) {
                 return;
             });
             break;
+
+        case "deleteGroup_request":
+            console.log("In server.js - deleteGroup_request case");
+            console.log("This is data.data : " + data.data);
+
+            group.handle_deleteGroup(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
     }
 });

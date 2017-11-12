@@ -115,7 +115,7 @@ app.post('/signup', function (req, res) {
 
 app.post('/deleteFile', function(req, res) {
 
-   console.log("In app.js - deleteFille - id : " + req.body.id);
+   console.log("In app.js - deleteFile - id : " + req.body.id);
 
    kafka.make_request('delete_request', 'delete_response', req.body.id, function(err, results) {
        console.log("In app.js - deleteFile : Results - " + results);
@@ -352,6 +352,23 @@ app.post('/groupShare', function (req, res) {
     kafka.make_request('groupShare_request', 'groupShare_response', payload, function(err, results) {
 
         console.log("In app.js - groupShare : Results - " + results);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
+});
+
+app.post('/deleteGroup', function(req, res) {
+
+    console.log("In app.js - deleteGroup - id : " + req.body.id);
+
+    kafka.make_request('deleteGroup_request', 'deleteGroup_response', req.body.id, function(err, results) {
+
+        console.log("In app.js - deleteGroup : Results - " + results);
+
         if (err) {
             res.status(401).send();
         }

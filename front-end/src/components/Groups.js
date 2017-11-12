@@ -93,6 +93,33 @@ class Groups extends Component {
             });
     };
 
+    handleDeleteGroup = (payload) => {
+
+        let payload1 = {id: payload};
+        console.log("In handleDeleteFile - payload1 : " + payload1);
+        console.log("In handleDeleteFile - payload1 : " + payload1.id);
+
+        API.deleteGroup(payload1)
+            .then((res) => {
+                console.log("1:" + res.status);
+
+                if (res.status === 201) {
+                    console.log("In handleDeleteFolder");
+                    API.getGroups()
+                        .then((res) => {
+                            res.json().then((data) => {
+                                console.log("In Groups - data : " + data);
+                                console.log(data);
+                                this.setState({
+                                    groups: data,
+                                    statusMessage: 'GROUP DELETED SUCCESSFULLY'
+                                })
+                            })
+                        });
+                }
+            });
+    };
+
     handleLogout = () => {
         console.log('In handleLogout');
         API.doLogout()
@@ -171,7 +198,7 @@ class Groups extends Component {
                                             {/*<td>{fileObject._id}</td>*/}
 
                                             <td className="col-sm-1">
-                                                <td>{fileObject.groupname} :</td>
+                                                <td>{fileObject.groupname} </td>
                                             </td>
 
                                             <td className="col-sm-1">{fileObject.owner}</td>
@@ -181,6 +208,10 @@ class Groups extends Component {
                                             <td className="col-sm-1">
                                                 <img src="https://www.iapps4you.com/images/apps/598/598452/logo.jpg"
                                                      onClick={() => this.addUser(fileObject)} height="30"
+                                                     width="30">
+                                                </img>
+                                                <img src="https://image.flaticon.com/icons/png/128/61/61391.png"
+                                                     onClick={() => this.handleDeleteGroup(fileObject._id)} height="30"
                                                      width="30">
                                                 </img>
                                             </td>

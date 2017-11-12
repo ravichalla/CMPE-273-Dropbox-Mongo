@@ -12,7 +12,8 @@ var topics = [
     {topic: 'createGroup_response', partition: 0},
     {topic: 'getGroups_response', partition: 0},
     {topic: 'updateUsernames_response', partition: 0},
-    {topic: 'groupShare_response', partition: 0}
+    {topic: 'groupShare_response', partition: 0},
+    {topic: 'deleteGroup_response', partition: 0}
 ];
 
 function ConnectionProvider() {

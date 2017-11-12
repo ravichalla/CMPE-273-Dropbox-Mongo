@@ -12,7 +12,8 @@ var topics = [
     {topic: 'createGroup_request', partition: 0},
     {topic: 'getGroups_request', partition: 0},
     {topic: 'updateUsernames_request', partition: 0},
-    {topic: 'groupShare_request', partition: 0}
+    {topic: 'groupShare_request', partition: 0},
+    {topic: 'deleteGroup_request', partition: 0}
 
 ];
 

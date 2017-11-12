@@ -1,5 +1,6 @@
 var mongoURL = "mongodb://localhost:27017/sessions";
 var mongo = require('./mongo');
+var ObjectId = require('mongodb').ObjectID;
 
 function handle_createGroup(msg, callback) {
 
@@ -139,7 +140,33 @@ function handle_groupShare(msg, callback) {
     });
 }
 
+function handle_deleteGroup(msg, callback) {
+
+    var res = {};
+    console.log("In createGroup.js - handle_deleteGroup : " + JSON.stringify(msg));
+
+    mongo.connect(mongoURL, function () {
+        console.log('Connected to mongo at: ' + mongoURL);
+
+        var groupCollection = mongo.collection('groupCollection');
+
+        console.log("In deleteFile.js - Id is : " + msg);
+
+        groupCollection.remove({"_id": ObjectId(msg)}, function (err, user) {
+            if(err) {
+                res.status = 500;
+            }
+            else {
+                console.log("In deleteGroup - user : " + user);
+                res.status = 201;
+            }
+            callback(null, res);
+        });
+    });
+}
+
 exports.handle_createGroup = handle_createGroup;
 exports.handle_getGroups = handle_getGroups;
 exports.handle_updateUsernames = handle_updateUsernames;
 exports.handle_groupShare = handle_groupShare;
+exports.handle_deleteGroup = handle_deleteGroup;
