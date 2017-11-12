@@ -4,6 +4,7 @@ import * as API from "../api/API";
 import Welcome from "./Welcome";
 import Signup from './Signup';
 import About from './About';
+import Groups from './Groups';
 
 import '../login.css'
 
@@ -62,7 +63,7 @@ class Login extends Component {
 
                             <img src="https://goo.gl/yFaAFJ" alt="Icon"/>
 
-                            <h4>Login</h4>
+                            <h4>SIGN IN</h4>
 
                             <input
                                 className="form-control"
@@ -97,7 +98,7 @@ class Login extends Component {
                                 </button>
                                 <br/>
                                 <br/>
-                                <button className="btn btn-success btn-group-sm	" onClick={() => {
+                                <button className="btn btn-success btn-group-sm" onClick={() => {
                                     this.props.history.push("/signup");
                                 }}>
                                     Signup
@@ -114,12 +115,15 @@ class Login extends Component {
                 )}/>
 
                 <Route exact path="/welcome" render={() => (
-                    <Welcome username={this.state.username} firstname={this.state.firstname}
-                             lastname={this.state.lastname}/>
+                    <Welcome username={this.state.username} firstname={this.state.firstname} lastname={this.state.lastname}/>
                 )}/>
 
                 <Route path="/about" render={() => (
                     <About username={this.state.username}/>
+                )}/>
+
+                <Route path="/groups" render={() => (
+                    <Groups username={this.state.username}/>
                 )}/>
             </div>
         );

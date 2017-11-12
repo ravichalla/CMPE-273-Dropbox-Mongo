@@ -8,7 +8,12 @@ var topics = [
     {topic: 'fileShare_request', partition: 0},
     {topic: 'about_request', partition: 0},
     {topic: 'star_request', partition: 0},
-    {topic: 'getdetails_request', partition: 0}
+    {topic: 'getdetails_request', partition: 0},
+    {topic: 'createGroup_request', partition: 0},
+    {topic: 'getGroups_request', partition: 0},
+    {topic: 'updateUsernames_request', partition: 0},
+    {topic: 'groupShare_request', partition: 0}
+
 ];
 
 function ConnectionProvider() {

@@ -22,7 +22,9 @@ function handle_shareFile(msg, callback) {
 
         myCollection.findOne({username: msg.sharedWith}, function(err, user) {
             if(user) {
-                filesCollection.insert({username : msg.sharedWith, documentName : msg.documentName, documentType : msg.documentType, path : msg.path, star : false, starImage: "https://goo.gl/6utW2q", fileOwner: msg.username}, function (err, user) {
+                filesCollection.insert({username : msg.sharedWith, documentName : msg.documentName, documentType : msg.documentType,
+                    path : msg.path, star : false, starImage: "https://goo.gl/6utW2q", fileOwner: msg.username
+                }, function (err, user) {
                     if(err) {
                         console.log("Internal error");
                         res.status = 500;

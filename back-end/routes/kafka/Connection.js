@@ -8,8 +8,11 @@ var topics = [
     {topic: 'fileShare_response', partition: 0},
     {topic: 'about_response', partition: 0},
     {topic: 'star_response', partition: 0},
-    {topic: 'getdetails_response', partition: 0}
-
+    {topic: 'getdetails_response', partition: 0},
+    {topic: 'createGroup_response', partition: 0},
+    {topic: 'getGroups_response', partition: 0},
+    {topic: 'updateUsernames_response', partition: 0},
+    {topic: 'groupShare_response', partition: 0}
 ];
 
 function ConnectionProvider() {

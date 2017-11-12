@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Link, withRouter} from 'react-router-dom';
 import * as API from '../api/API';
 import About from './About';
+import Groups from './Groups';
 
 import "../welcome.css";
 import "../login.css";
@@ -28,7 +29,7 @@ class Welcome extends Component {
             .then((res) => {
                 if (res.status === 201) {
                     console.log("In Welcome.js - uploadFile completed");
-                    API.getImages()
+                    API.getFiles()
                         .then((res) => {
                             res.json().then((data) => {
                                     console.log(data);
@@ -51,7 +52,7 @@ class Welcome extends Component {
         let payload = {
             "username": fileObject.username,
             "documentName": fileObject.documentName,
-            "mimeType": fileObject.mimeType,
+            "documentType": fileObject.documentType,
             "path": fileObject.path,
             "sharedWith": sharedUser
         };
@@ -59,11 +60,11 @@ class Welcome extends Component {
         console.log("0: " + payload);
         console.log("1: " + payload.username);
         console.log("2: " + payload.documentName);
-        console.log("3: " + payload.mimeType);
+        console.log("3: " + payload.documentType);
         console.log("4: " + payload.path);
         console.log("5: " + payload.sharedWith);
 
-        API.shareFile(payload)
+        API.fileShare(payload)
             .then((res) => {
                     console.log(res.status);
                     if (res.status === 201) {
@@ -79,8 +80,46 @@ class Welcome extends Component {
                     else {
                         console.log("INTERNAL ERROR");
                     }
+                });
+    };
+
+    handleGroupShare = (fileObject) => {
+        console.log("In handleGroupShare");
+
+        let groupname = prompt("Name the group you want to share this file with");
+
+        let payload = {
+            "username": fileObject.username,
+            "documentName": fileObject.documentName,
+            "mimeType": fileObject.mimetype,
+            "path": fileObject.path,
+            "groupname": groupname
+        };
+
+        console.log("0: " + payload);
+        console.log("1: " + payload.username);
+        console.log("2: " + payload.documentName);
+        console.log("3: " + payload.mimetype);
+        console.log("4: " + payload.path);
+        console.log("5: " + payload.groupname);
+
+        API.groupShare(payload)
+            .then((res) => {
+                console.log(res.status);
+                if (res.status === 201) {
+                    this.setState({
+                        statusMessage: "FILE SHARE SUCCESSFUL"
+                    });
                 }
-            )
+                else if (res.status === 404) {
+                    this.setState({
+                        statusMessage: "SUCH GROUP DOESN'T EXIST"
+                    });
+                }
+                else {
+                    console.log("INTERNAL ERROR");
+                }
+            });
     };
 
     componentWillMount() {
@@ -102,7 +141,7 @@ class Welcome extends Component {
 
                 if (res.status === 201) {
                     console.log("In handleDeleteFolder");
-                    API.getImages()
+                    API.getFiles()
                         .then((res) => {
                             res.json().then((data) => {
                                 console.log("In Welcome - data : " + data);
@@ -125,7 +164,7 @@ class Welcome extends Component {
                 console.log("1---------" + res.status);
                 if (res.status === 201) {
 
-                    API.getImages()
+                    API.getFiles()
                         .then((res) => {
                             res.json().then((data) => {
                                 console.log(data);
@@ -140,7 +179,7 @@ class Welcome extends Component {
     };
 
     componentDidMount() {
-        API.getImages()
+        API.getFiles()
             .then((res) => {
                 res.json().then((data) => {
                     console.log("In Welcome - data : " + data);
@@ -196,6 +235,16 @@ class Welcome extends Component {
                     <br/>
 
                     <div className="row">
+                        <button className="btn btn-primary" onClick={() => {
+                            this.props.history.push("/groups");
+                        }}>
+                            Groups
+                        </button>
+                    </div>
+
+                    <br/>
+
+                    <div className="row">
                         <button
                             className="btn btn-danger"
                             type="button"
@@ -232,7 +281,7 @@ class Welcome extends Component {
                                         <tr>
                                             {/*<td>{fileObject._id}</td>*/}
 
-                                            <td className="col-sm-4">
+                                            <td className="col-sm-3">
                                                 <td>{fileObject.documentName} : </td>
 
                                                 <td>{fileObject.documentType}</td>
@@ -241,25 +290,32 @@ class Welcome extends Component {
                                             <td className="col-sm-3">{fileObject.path}</td>
                                             <td className="col-sm-1">{fileObject.fileOwner}</td>
 
-                                            <td className="col-sm-1">
+                                            <td className="col-sm-2">
                                                 <td>
                                                     <img src={fileObject.starImage}
-                                                         onClick={() => this.handleStarFile(fileObject._id)} height="20"
-                                                         width="20">
+                                                         onClick={() => this.handleStarFile(fileObject._id)} height="25"
+                                                         width="25">
                                                     </img>
                                                 </td>
                                                 <td>
                                                     <img src="https://image.flaticon.com/icons/png/128/61/61391.png"
-                                                         onClick={() => this.handleDeleteFile(fileObject._id)} height="20"
-                                                         width="20">
+                                                         onClick={() => this.handleDeleteFile(fileObject._id)} height="25"
+                                                         width="25">
                                                     </img>
                                                 </td>
                                                 <td>
                                                     <img
                                                         src="https://www.shareicon.net/data/128x128/2015/09/19/643381_internet_512x512.png"
-                                                        onClick={() => this.handleFileShare(fileObject)} height="20"
-                                                        width="20"></img>
+                                                        onClick={() => this.handleFileShare(fileObject)} height="25"
+                                                        width="25"></img>
                                                 </td>
+                                                <td>
+                                                    <img
+                                                        src="https://goo.gl/Dwspsz"
+                                                        onClick={() => this.handleGroupShare(fileObject)} height="30"
+                                                        width="30"></img>
+                                                </td>
+
                                             </td>
 
                                         </tr>
@@ -273,6 +329,10 @@ class Welcome extends Component {
 
                 <Route path="/about" render={() => (
                     <About username={this.state.username}/>
+                )}/>
+
+                <Route path="/groups" render={() => (
+                    <Groups username={this.state.username}/>
                 )}/>
 
             </div>

@@ -7,10 +7,10 @@ var uploadFile = require('./services/uploadFile');
 var shareFile = require('./services/shareFile');
 var about = require('./services/about');
 var starFile = require('./services/starFile');
+var group = require('./services/createGroup');
 
 var consumer = connection.getConsumer();
 var producer = connection.getProducer();
-
 
 consumer.on('message', function (message) {
     console.log('In server.js : Message Received for topic: ' + message.topic);
@@ -209,6 +209,100 @@ consumer.on('message', function (message) {
             console.log("This is data.data : " + data.data);
 
             about.handle_getDetails(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
+
+        case "createGroup_request":
+
+            console.log("In server.js - createGroup_request case");
+            console.log("This is data.data : " + data.data);
+
+            group.handle_createGroup(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
+
+        case "getGroups_request":
+            console.log("In server.js - getGroups_request case");
+            console.log("This is data.data : " + data.data);
+
+            group.handle_getGroups(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
+
+        case "updateUsernames_request":
+            console.log("In server.js - getGroups_request case");
+            console.log("This is data.data : " + data.data);
+
+            group.handle_updateUsernames(data.data, function (err, res) {
+                var payloads = [
+                    {
+                        topic: data.replyTo,
+                        messages: JSON.stringify({
+                            correlationId: data.correlationId,
+                            data: res
+                        }),
+                        partition: 0
+                    }
+                ];
+                producer.send(payloads, function(err, data) {
+                    if(err)
+                        console.log(err);
+                });
+                return;
+            });
+            break;
+
+        case "groupShare_request":
+
+            console.log("In server.js - groupShare_request case");
+            console.log("This is data.data : " + data.data);
+
+            group.handle_groupShare(data.data, function (err, res) {
                 var payloads = [
                     {
                         topic: data.replyTo,

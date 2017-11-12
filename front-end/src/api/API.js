@@ -56,8 +56,8 @@ export const doLogout = () =>
             return error;
         });
 
-export const getImages = () =>
-    fetch(`${api}/getImages`, {
+export const getFiles = () =>
+    fetch(`${api}/getFiles`, {
         method: 'GET',
         headers: {
             ...headers,
@@ -102,8 +102,8 @@ export const deleteFile = (payload) =>
             return error;
         });
 
-export const shareFile = (payload) =>
-    fetch(`${api}/shareFile`, {
+export const fileShare = (payload) =>
+    fetch(`${api}/fileShare`, {
         method: 'POST',
         headers: {
             ...headers,
@@ -173,3 +173,70 @@ export const getDetails = () =>
             return error;
         });
 
+export const createGroup = (payload) =>
+    fetch(`${api}/createGroup`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error");
+            return error;
+        });
+
+export const getGroups = () =>
+    fetch(`${api}/getGroups`, {
+        method: 'GET',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error.");
+            return error;
+        });
+
+
+export const updateUsernames = (payload) =>
+    fetch(`${api}/updateUsernames`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error");
+            return error;
+        });
+
+export const groupShare = (payload) =>
+    fetch(`${api}/groupShare`, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    }).then(res => {
+        return res;
+    })
+        .catch(error => {
+            console.log("This is error");
+            return error;
+        });

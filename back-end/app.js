@@ -105,10 +105,10 @@ app.post('/signup', function (req, res) {
     kafka.make_request('signup_request', 'signup_response', payload, function (err, results) {
         console.log("In app.js - signup : Results - " + results);
         if (err) {
-            res.status(401).send();
+            res.send();
         }
         else {
-            res.status(201).send(results);
+            res.send(results);
         }
     });
 });
@@ -181,8 +181,10 @@ app.post('/uploadFile', upload.single('myfile'), function(req, res) {
 
 });
 
-app.get('/getImages', function (req, res) {
+app.get('/getFiles', function (req, res) {
+
     console.log("In app.js - getImages - Username is " + req.session.username);
+
     kafka.make_request('getfiles_request', 'getfiles_response', req.session.username, function(err, results) {
         console.log("In app.js - getImages : Results - " + results);
         if (err) {
@@ -194,13 +196,14 @@ app.get('/getImages', function (req, res) {
     });
 });
 
-app.post('/shareFile', function (req, res) {
+app.post('/fileShare', function (req, res) {
 
     console.log("In app.js - shareFile - Request is : " + req);
     console.log("1: " + req.body.username);
     console.log("2: " + req.body.documentName);
-    console.log("3: " + req.body.path);
-    console.log("4: " + req.body.sharedWith);
+    console.log("3: " + req.body.mimeType);
+    console.log("4: " + req.body.path);
+    console.log("5: " + req.body.sharedWith);
 
     var payload = {
         "username": req.session.username,
@@ -261,6 +264,94 @@ app.post('/about', function (req, res) {
 
     kafka.make_request('about_request', 'about_response', payload, function (err, results) {
         console.log("In app.js - about : Results - " + results.status);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
+});
+
+app.post('/createGroup', function (req, res) {
+
+    console.log("In app.js - createGroup - Request is : " + req);
+    console.log("1: " + req.body.groupname);
+
+    var payload = {
+        "owner": req.session.username,
+        "groupname": req.body.groupname
+    };
+
+    kafka.make_request('createGroup_request', 'createGroup_response', payload, function(err, results) {
+
+        console.log("In app.js - createGroup : Results - " + results);
+        if (err) {
+            res.send();
+        }
+        else {
+            res.send(results);
+        }
+    });
+});
+
+app.get('/getGroups', function (req, res) {
+
+    console.log("In app.js - getGroups - Username is " + req.session.username);
+
+    kafka.make_request('getGroups_request', 'getGroups_response', req.session.username, function(err, results) {
+
+        console.log("In app.js - getGroups : Results - " + results);
+        if (err) {
+            res.status(401).send();
+        }
+        else {
+            res.status(201).send(results);
+        }
+    });
+});
+
+app.post('/updateUsernames', function (req, res) {
+
+    payload = {
+        "owner" : req.session.username,
+        "groupname" : req.body.groupname,
+        "usernames" : req.body.usernames
+    };
+
+    kafka.make_request('updateUsernames_request', 'updateUsernames_response', payload, function(err, results) {
+
+        console.log("In app.js - updateUsernames : Results - " + results);
+        if (err) {
+            res.send();
+        }
+        else {
+            res.send(results);
+        }
+    });
+
+});
+
+app.post('/groupShare', function (req, res) {
+
+    console.log("In app.js - groupShare - Request is : " + req);
+    console.log("1: " + req.body.username);
+    console.log("2: " + req.body.documentName);
+    console.log("3: " + req.body.documentType);
+    console.log("4: " + req.body.path);
+    console.log("5: " + req.body.groupname);
+
+    var payload = {
+        "username": req.session.username,
+        "documentName": req.body.documentName,
+        "documentType": req.body.documentType,
+        "path": req.body.path,
+        "groupname": req.body.groupname
+    }
+
+    kafka.make_request('groupShare_request', 'groupShare_response', payload, function(err, results) {
+
+        console.log("In app.js - groupShare : Results - " + results);
         if (err) {
             res.status(401).send();
         }

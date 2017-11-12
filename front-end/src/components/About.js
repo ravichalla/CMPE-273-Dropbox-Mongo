@@ -29,6 +29,7 @@ class About extends Component {
 
                     if (data.status === 204) {
                         console.log("The response overview is : " + data.overview);
+
                         this.setState({
                             overview: data.overview,
                             work: data.work,
@@ -48,7 +49,7 @@ class About extends Component {
                     }
                 })
             });
-    }
+    };
 
     handleAbout = (payload) => {
         API.userAbout(payload)
@@ -125,7 +126,7 @@ class About extends Component {
 
                 <div className="col-sm-9">
 
-                    <table className="table table-inverse">
+                    <table className="table">
                         <tr>
                             <td className="col-sm-3"><h4>User Overview</h4></td>
                             <td className="col-sm-6">
